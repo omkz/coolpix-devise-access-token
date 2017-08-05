@@ -25,7 +25,10 @@ Rails.application.routes.draw do
   #   get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   # end
   devise_for :users, :controllers =>
-      { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' }
+      {
+        omniauth_callbacks: 'users/omniauth_callbacks',
+        registrations: 'registrations'
+      }
 
   resources  :users, :only => [:index, :show] do
     member do
@@ -42,7 +45,8 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
   namespace :api do
-    namespace :v1 do
+    scope :v1 do
+      mount_devise_token_auth_for 'User', at: 'auth'
       resources :home
       resources :posts do
         resources :comments

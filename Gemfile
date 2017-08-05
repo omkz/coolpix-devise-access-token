@@ -60,6 +60,7 @@ end
 gem 'bootstrap-sass'
 
 gem 'devise'
+gem 'devise_token_auth'
 
 gem 'carrierwave'
 
