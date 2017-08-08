@@ -91,7 +91,8 @@ gem 'elasticsearch-rails'
 
 gem 'activeadmin', github: 'activeadmin'
 
-gem 'active_model_serializers'
+# gem 'active_model_serializers'
+gem 'active_model_serializers', '0.10.0.rc4'
 
 # Swagger
 gem 'swagger-docs'
